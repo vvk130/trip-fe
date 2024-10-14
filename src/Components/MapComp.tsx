@@ -5,6 +5,7 @@ import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 import ItemCard from "./ItemCard";
 import JourneyDetail from "./StationDetailPage";
+// import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const defaultCenter: [number, number] = [51.505, -0.09];
 const defaultZoom: number = 8;
