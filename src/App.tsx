@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<MapComp />} />
-        <Route path="/journeys" element={<MapComp />} />
+        <Route path="/stations" element={<MapComp />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </MainComp>
