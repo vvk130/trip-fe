@@ -2,7 +2,7 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
-import "/react-responsive-pagination/themes/classic.css";
+import "react-responsive-pagination/themes/classic.css";
 import ItemCard from "./ItemCard";
 import JourneyDetail from "./StationDetailPage";
 
