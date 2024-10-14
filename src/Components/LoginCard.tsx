@@ -1,7 +1,7 @@
 const LoginCard = (): JSX.Element => {
   return (
     <>
-      <p>JourneyId JourneyName</p>
+      <p>Login here:</p>
     </>
   );
 };
