@@ -5,10 +5,16 @@ import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 import ItemCard from "./ItemCard";
 import JourneyDetail from "./StationDetailPage";
-// import LocationOnIcon from "@mui/icons-material/LocationOn";
+import L from "leaflet";
 
 const defaultCenter: [number, number] = [51.505, -0.09];
 const defaultZoom: number = 8;
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+});
 
 const MapComp = (): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(8);
