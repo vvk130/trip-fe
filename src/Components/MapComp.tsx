@@ -1,8 +1,8 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-// import { useState } from "react";
-// import ResponsivePagination from "react-responsive-pagination";
-// import "/react-responsive-pagination/themes/classic.css";
+import { useState } from "react";
+import ResponsivePagination from "react-responsive-pagination";
+import "/react-responsive-pagination/themes/classic.css";
 import ItemCard from "./ItemCard";
 import JourneyDetail from "./StationDetailPage";
 
@@ -10,8 +10,8 @@ const defaultCenter: [number, number] = [51.505, -0.09];
 const defaultZoom: number = 8;
 
 const MapComp = (): JSX.Element => {
-  // const [currentPage, setCurrentPage] = useState(8);
-  // const totalPages = 20;
+  const [currentPage, setCurrentPage] = useState(8);
+  const totalPages = 20;
 
   return (
     <>
@@ -19,11 +19,11 @@ const MapComp = (): JSX.Element => {
       <p>See stations on map</p>
       <ItemCard />
       <JourneyDetail />
-      {/* <ResponsivePagination
+      <ResponsivePagination
         current={currentPage}
         total={totalPages}
         onPageChange={setCurrentPage}
-      /> */}
+      />
       <MapContainer
         center={defaultCenter}
         zoom={defaultZoom}
