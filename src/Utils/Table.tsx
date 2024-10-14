@@ -5,8 +5,8 @@ const Table = <TRow extends Record<number, unknown>>(props: {
   return (
     <table>
       <tbody>
-        {props.rows.map((row) => (
-          <props.renderRow {...row} />
+        {props.rows.map((row, index) => (
+          <props.renderRow key={index} {...row} />
         ))}
       </tbody>
     </table>

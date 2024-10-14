@@ -3,8 +3,6 @@ import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
-import ItemCard from "./ItemCard";
-import JourneyDetail from "./StationDetailPage";
 import Table from "../Utils/Table";
 
 const defaultCenter: [number, number] = [51.505, -0.09];
@@ -15,9 +13,9 @@ const MapComp = (): JSX.Element => {
   const totalPages = 20;
 
   const data = [
-    { id: 1, name: "John Doe", age: 30 },
-    { id: 2, name: "Jane Smith", age: 25 },
-    { id: 3, name: "Alice Johnson", age: 28 },
+    { id: 1, name: "Station 1", age: 30 },
+    { id: 2, name: "Station 3", age: 25 },
+    { id: 3, name: "Station 20", age: 28 },
   ];
 
   return (
@@ -28,15 +26,13 @@ const MapComp = (): JSX.Element => {
         rows={data}
         renderRow={(row) => {
           return (
-            <tr>
+            <tr key={row.id}>
               <td>{row.id}</td>
               <td>{row.name}</td>
             </tr>
           );
         }}
       />
-      <ItemCard />
-      <JourneyDetail />
       <ResponsivePagination
         current={currentPage}
         total={totalPages}
