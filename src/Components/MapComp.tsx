@@ -4,7 +4,6 @@ import { useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 import Table from "../Utils/Table";
-import SearchBar from "material-ui-search-bar";
 
 const defaultCenter: [number, number] = [51.505, -0.09];
 const defaultZoom: number = 8;
@@ -23,11 +22,6 @@ const MapComp = (): JSX.Element => {
     <>
       <h1>Stations</h1>
       <p>See stations on map</p>
-      {/* <SearchBar
-      // value={this.state.value}
-      // onChange={(newValue) => this.setState({ value: newValue })}
-      // onRequestSearch={() => doSomethingWith(this.state.value)}
-      /> */}
       <Table
         rows={data}
         renderRow={(row) => {
