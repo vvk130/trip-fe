@@ -40,6 +40,7 @@ const StationForm = () => {
       <form onSubmit={formik.handleSubmit}>
         <TextField
           fullWidth
+          variant="filled"
           id="id"
           name="id"
           label="id"
@@ -51,6 +52,7 @@ const StationForm = () => {
         />
         <TextField
           fullWidth
+          variant="filled"
           id="stationName"
           name="stationName"
           label="stationName"
@@ -65,6 +67,7 @@ const StationForm = () => {
         />
         <TextField
           fullWidth
+          variant="filled"
           id="stationAddress"
           name="stationAddress"
           label="stationAddress"
@@ -82,6 +85,7 @@ const StationForm = () => {
         />
         <TextField
           fullWidth
+          variant="filled"
           id="coordinateX"
           name="coordinateX"
           label="coordinateX"
@@ -96,6 +100,7 @@ const StationForm = () => {
         />
         <TextField
           fullWidth
+          variant="filled"
           id="coordinateY"
           name="coordinateY"
           label="coordinateY"
