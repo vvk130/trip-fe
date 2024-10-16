@@ -6,12 +6,10 @@ import TextField from "@material-ui/core/TextField";
 const validationSchema = yup.object({
   email: yup
     .string()
-    .typeError("Provide an email")
     .email("Enter a valid email")
     .required("Email is required"),
   password: yup
     .string()
-    .typeError("Provide a password")
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
       "Must Contain 6 Characters, One Uppercase, One Lowercase, One Number and one special case character"
