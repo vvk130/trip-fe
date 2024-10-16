@@ -17,7 +17,7 @@ const validationSchema = yup.object({
     .required("Password is required"),
 });
 
-const WithMaterialUI = () => {
+const LoginForm = () => {
   const formik = useFormik({
     initialValues: {
       email: "foobar@example.com",
@@ -63,4 +63,4 @@ const WithMaterialUI = () => {
   );
 };
 
-export default WithMaterialUI;
+export default LoginForm;
