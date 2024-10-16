@@ -1,10 +1,14 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css";
+import "leaflet-defaulticon-compatibility";
+import iconMarker from "leaflet/dist/images/marker-icon.png";
 import { useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 import Table from "../Utils/Table";
 import SearchBar from "./Forms/SearchBar";
+import L from "leaflet";
 
 const defaultCenter: [number, number] = [51.505, -0.09];
 const defaultZoom: number = 8;
@@ -12,6 +16,8 @@ const defaultZoom: number = 8;
 const MapComp = (): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(8);
   const totalPages = 20;
+
+  const icon = L.icon({ iconUrl: iconMarker });
 
   const data = [
     { id: 1, name: "Station 1", age: 30 },
@@ -49,7 +55,7 @@ const MapComp = (): JSX.Element => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[51.505, -0.09]}>
+        <Marker position={[51.505, -0.09]} icon={icon}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
