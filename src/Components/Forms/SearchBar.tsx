@@ -19,7 +19,7 @@ const SearchBar = () => {
   });
 
   return (
-    <div>
+    <div className="login-container">
       <form onSubmit={formik.handleSubmit}>
         <TextField
           fullWidth

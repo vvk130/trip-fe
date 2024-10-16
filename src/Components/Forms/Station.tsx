@@ -36,7 +36,8 @@ const StationForm = () => {
   });
 
   return (
-    <div>
+    <div className="login-container">
+      <h1>Add Station</h1>
       <form onSubmit={formik.handleSubmit}>
         <TextField
           fullWidth

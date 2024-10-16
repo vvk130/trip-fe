@@ -5,6 +5,8 @@ const Navbar = () => {
     <nav>
       <Link to="/stations">Stations</Link>
       <span> || </span>
+      <Link to="/add-station">Add Station</Link>
+      <span> || </span>
       <Link to="/login">Login</Link>
     </nav>
   );

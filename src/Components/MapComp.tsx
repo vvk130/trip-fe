@@ -4,6 +4,7 @@ import { useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 import Table from "../Utils/Table";
+import SearchBar from "./Forms/SearchBar";
 
 const defaultCenter: [number, number] = [51.505, -0.09];
 const defaultZoom: number = 8;
@@ -21,6 +22,7 @@ const MapComp = (): JSX.Element => {
   return (
     <>
       <h1>Stations</h1>
+      <SearchBar />
       <p>See stations on map</p>
       <Table
         rows={data}
