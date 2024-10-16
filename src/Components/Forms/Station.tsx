@@ -113,7 +113,9 @@ const StationForm = () => {
           }
           helperText={formik.touched.coordinateY && formik.errors.coordinateY}
         />
-        <Button>Submit</Button>
+        <Button color="primary" variant="contained" fullWidth type="submit">
+          Submit
+        </Button>
       </form>
     </div>
   );
