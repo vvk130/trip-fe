@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
-// import Button from "@mui/material/Button";
-// import TextField from "@material-ui/core/TextField";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 // Only id field is a required, as specified in the assignment. Additional fields can be filled out after initialization.
 
@@ -38,7 +38,7 @@ const StationForm = () => {
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
-        {/* <TextField
+        <TextField
           fullWidth
           id="id"
           name="id"
@@ -108,7 +108,7 @@ const StationForm = () => {
           }
           helperText={formik.touched.coordinateY && formik.errors.coordinateY}
         />
-        <Button>Submit</Button> */}
+        <Button>Submit</Button>
       </form>
     </div>
   );
