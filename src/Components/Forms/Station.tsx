@@ -23,11 +23,11 @@ const validationSchema = yup.object({
 const StationForm = () => {
   const formik = useFormik({
     initialValues: {
-      id: "50050",
-      stationName: "",
-      stationAddress: "",
-      coordinateX: "",
-      coordinateY: "",
+      id: "533",
+      stationName: "Keilaranta",
+      stationAddress: "Keilaranta 13	",
+      coordinateX: "24.835132",
+      coordinateY: "60.174144",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
