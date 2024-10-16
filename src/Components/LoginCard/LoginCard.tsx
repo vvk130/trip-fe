@@ -1,4 +1,4 @@
-import WithMaterialUI from "./Forms/Login";
+import WithMaterialUI from "../Forms/Login";
 import "./LoginCard.css";
 
 const LoginCard = (): JSX.Element => {

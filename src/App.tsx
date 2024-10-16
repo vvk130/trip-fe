@@ -3,7 +3,7 @@ import "./App.css";
 import MainComp from "./Components/MainComp";
 import MapComp from "./Components/MapComp";
 import Navbar from "./Components/NavBar";
-import Login from "./Components/LoginCard";
+import Login from "./Components/LoginCard/LoginCard";
 
 function App() {
   return (
