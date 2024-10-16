@@ -1,7 +1,11 @@
+import { useParams } from "react-router-dom";
+
 const StationDetail = (): JSX.Element => {
+  const { id } = useParams();
+
   return (
     <>
-      <li>PropertyName Property</li>
+      <h1>Station {id}</h1>
     </>
   );
 };
