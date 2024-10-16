@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+// import Button from "@material-ui/core/Button";
+// import TextField from "@material-ui/core/TextField";
 import stringRequired from "./YupValidators/stringRequired";
 
 const validationSchema = yup.object({
@@ -27,7 +27,7 @@ const LoginForm = () => {
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
-        <TextField
+        {/* <TextField
           fullWidth
           id="email"
           name="email"
@@ -52,7 +52,7 @@ const LoginForm = () => {
         />
         <Button color="primary" variant="contained" fullWidth type="submit">
           Submit
-        </Button>
+        </Button> */}
       </form>
     </div>
   );
