@@ -1,6 +1,7 @@
 import Station from "../Forms/Station";
 import LoginForm from "../Forms/Login";
 import "./LoginCard.css";
+import SearchBar from "../Forms/SearchBar";
 
 const LoginCard = (): JSX.Element => {
   return (
@@ -8,6 +9,7 @@ const LoginCard = (): JSX.Element => {
       <h1>Login or SignUp here:</h1>
       <LoginForm />
       <Station />
+      <SearchBar />
     </div>
   );
 };

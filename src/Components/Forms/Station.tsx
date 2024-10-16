@@ -25,7 +25,7 @@ const StationForm = () => {
     initialValues: {
       id: "533",
       stationName: "Keilaranta",
-      stationAddress: "Keilaranta 13	",
+      stationAddress: "Keilaranta 13",
       coordinateX: "24.835132",
       coordinateY: "60.174144",
     },
