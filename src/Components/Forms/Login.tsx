@@ -2,19 +2,14 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import stringRequired from "./YupValidators/stringRequired";
 
 const validationSchema = yup.object({
-  email: yup
-    .string()
-    .email("Enter a valid email")
-    .required("Email is required"),
-  password: yup
-    .string()
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
-      "Must Contain 6 Characters, One Uppercase, One Lowercase, One Number and one special case character"
-    )
-    .required("Password is required"),
+  email: stringRequired("Email").email("Enter a valid email"),
+  password: stringRequired("Password").matches(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+    "Must Contain 6 Characters, One Uppercase, One Lowercase, One Number and one special case character"
+  ),
 });
 
 const LoginForm = () => {
