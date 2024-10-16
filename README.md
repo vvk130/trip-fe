@@ -1,6 +1,6 @@
 # Live Demo
 
-https://lucent-flan-11622f.netlify.app/
+https://journey-app-2024.netlify.app/
 
 # Backend Repo
 
