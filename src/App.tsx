@@ -7,11 +7,13 @@ import Login from "./Components/LoginCard/LoginCard";
 import StationForm from "./Components/Forms/Station";
 import StationDetail from "./Components/StationDetailPage";
 import NotFound from "./Components/NotFound";
+import Fetch from "./Components/Fetch";
 
 function App() {
   return (
     <MainComp>
       <Navbar />
+      <Fetch />
       <Routes>
         <Route path="/" element={<MapComp />} />
         <Route path="/stations" element={<MapComp />} />

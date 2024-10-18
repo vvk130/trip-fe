@@ -4,13 +4,16 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 const validationSchema = yup.object({
-  searchQuery: yup.string().min(2).required("Search query is required"),
+  searchQuery: yup
+    .string()
+    .min(2, "Minimum 2 characters required")
+    .required("Search query is required"),
 });
 
 const SearchBar = () => {
   const formik = useFormik({
     initialValues: {
-      searchQuery: "Type to search...",
+      searchQuery: "Search by id, name or address...",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -28,6 +31,7 @@ const SearchBar = () => {
           name="searchQuery"
           label="Search Query"
           type="text"
+          placeholder="Type to search..."
           value={formik.values.searchQuery}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
