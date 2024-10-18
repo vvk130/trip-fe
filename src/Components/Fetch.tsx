@@ -17,7 +17,7 @@ const App: React.FC = () => {
   useEffect(() => {
     axios
       .get<Station>(
-        "https://tripnetreactbackend-app-20241012.agreeablebay-04f023f8.swedencentral.azurecontainerapps.io/index.html"
+        "https://tripnetreactbackend-app-20241012.agreeablebay-04f023f8.swedencentral.azurecontainerapps.io/api/Stations"
       )
       .then((response: { data: React.SetStateAction<Station | null> }) => {
         setData(response.data);
