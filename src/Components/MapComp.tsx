@@ -16,7 +16,6 @@ const MapComp = (): JSX.Element => {
   const totalPages = 20;
 
   const positions = [
-    { coordinateX: null, coordinateY: null },
     { coordinateX: 51.51, coordinateY: -0.1 },
     { coordinateX: 51.52, coordinateY: -0.12 },
     { coordinateX: 51.53, coordinateY: -0.08 },
