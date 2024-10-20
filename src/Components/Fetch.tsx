@@ -2,7 +2,6 @@
 // import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
-// Define the Station interface
 interface Station {
   id: number;
   stationName: string;
@@ -11,12 +10,11 @@ interface Station {
   coordinateY: string;
 }
 
-// Define the response structure
-interface StationResponse {
-  count: number;
-  pagesTotal: number;
-  data: Station[];
-}
+// interface StationResponse {
+//   count: number;
+//   pagesTotal: number;
+//   data: Station[];
+// }
 
 // const App: React.FC = () => {
 //   // Update the state type to handle the full response
