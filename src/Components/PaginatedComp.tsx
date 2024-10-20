@@ -7,7 +7,6 @@ import MapComponent from "./MapComp";
 import { useQuery } from "@tanstack/react-query";
 import StationPaginatedDto from "../Types/StationPaginatedDto";
 import baseUrl from "../Utils/urls";
-import Positions from "../Types/Positions";
 import Position from "../Types/Positions";
 
 function PaginatedComp() {
