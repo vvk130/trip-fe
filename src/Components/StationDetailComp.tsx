@@ -36,12 +36,26 @@ function StationDetail() {
       <p>Coordinate X: {data.coordinateX}</p>
       <p>Coordinate Y: {data.coordinateY}</p>
       <h2>Journey Details</h2>
-      <h3>Departure Station {id}</h3>
-      <p>Total Number of Journeys: {data.stationDetails.departureTotalNum}</p>
-      <p>Average Distance: {data.stationDetails.avgDepartureDistance}</p>
-      <p>Average Duration: {data.stationDetails.avgDepartureDuration}</p>
-      <h3>Return Station {id}</h3>
-      <p>Total Number of Journeys: {data.stationDetails.returnTotalNum}</p>
+      {data.stationDetails.length > 0 && (
+        <>
+          <h3>Departure Station {id}</h3>
+          <p>
+            Total Number of Journeys: {data.stationDetails[0].departureTotalNum}
+          </p>
+          <p>
+            Average Distance: {data.stationDetails[0].avgDepartureDistance}{" "}
+            meters
+          </p>
+          <p>
+            Average Duration: {data.stationDetails[0].avgDepartureDuration}{" "}
+            seconds
+          </p>
+          <h3>Return Station {id}</h3>
+          <p>
+            Total Number of Journeys: {data.stationDetails[0].returnTotalNum}
+          </p>
+        </>
+      )}
       <MapComponent positions={positions} />
     </>
   );
