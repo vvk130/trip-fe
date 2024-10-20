@@ -36,7 +36,7 @@ const MapComp = ({ positions }: MapCompProps) => {
                 position.coordinateY.toString() +
                 position.coordinateX.toString()
               }
-              position={[position.coordinateX, position.coordinateY]}
+              position={[position.coordinateY, position.coordinateX]}
               icon={icon}
             >
               <Popup>Station</Popup>
