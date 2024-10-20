@@ -7,7 +7,7 @@ const getCenterCoordinatesOrDefaultHelsinki = (positions: Position[]): [number, 
     const { coordinateX, coordinateY } = positions[0];
 
     if (coordinateX != null && coordinateY != null) {
-      return [coordinateX, coordinateY];
+      return [Number(coordinateY), Number(coordinateX)];
     }
   }
 
