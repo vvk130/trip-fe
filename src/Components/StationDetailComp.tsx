@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import MapComponent from "./MapComp";
-import Position from "../Types/Positions";
 import { useQuery } from "@tanstack/react-query";
 import baseUrl from "../Utils/urls";
 
@@ -20,13 +19,6 @@ function StationDetail() {
   if (!data) {
     return <p>No station details found.</p>;
   }
-
-  const positions: Position[] = [
-    {
-      coordinateX: parseFloat(data.coordinateX),
-      coordinateY: parseFloat(data.coordinateY),
-    },
-  ];
 
   return (
     <>
@@ -56,7 +48,14 @@ function StationDetail() {
           </p>
         </>
       )}
-      <MapComponent positions={positions} />
+      <MapComponent
+        positions={[
+          {
+            coordinateX: Number(data.stationDto.coordinateX),
+            coordinateY: Number(data.stationDto.coordinateY),
+          },
+        ]}
+      />
     </>
   );
 }
