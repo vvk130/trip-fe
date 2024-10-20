@@ -10,7 +10,7 @@ function StationDetail() {
   const { isPending, error, data } = useQuery({
     queryKey: ["station", id],
     queryFn: () =>
-      fetch(`${baseUrl}api/Stations/${id}`).then((res) => res.json()),
+      fetch(`${baseUrl}/api/Stations/${id}`).then((res) => res.json()),
   });
 
   if (isPending) return "Loading...";
