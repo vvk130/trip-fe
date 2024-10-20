@@ -2,6 +2,10 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Station from "../../Types/Station";
+import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
+import baseUrl from "../../Utils/urls";
 
 // Only id field is a required, as specified in the assignment. Additional fields can be filled out after initialization.
 
@@ -21,9 +25,22 @@ const validationSchema = yup.object({
 });
 
 const StationForm = () => {
-  const formik = useFormik({
+  const { mutate, isPending, isError, isSuccess } = useMutation({
+    mutationFn: (newStation: Station) =>
+      axios.post(`${baseUrl}/api/stations`, newStation),
+    onSuccess: (res) => {
+      console.log("Station added successfully:", res.data);
+      alert("Station added successfully");
+    },
+    onError: (err) => {
+      console.error("Error adding station:", err);
+      alert("Error adding station");
+    },
+  });
+
+  const formik = useFormik<Station>({
     initialValues: {
-      id: "533",
+      id: 533,
       stationName: "Keilaranta",
       stationAddress: "Keilaranta 13",
       coordinateX: "24.835132",
@@ -31,7 +48,7 @@ const StationForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      mutate(values);
     },
   });
 
@@ -114,9 +131,23 @@ const StationForm = () => {
           }
           helperText={formik.touched.coordinateY && formik.errors.coordinateY}
         />
-        <Button color="primary" variant="contained" fullWidth type="submit">
-          Submit
+        <Button
+          color="primary"
+          variant="contained"
+          fullWidth
+          type="submit"
+          disabled={isPending}
+        >
+          {isPending ? "Submitting..." : "Submit"}
         </Button>
+        {isError && (
+          <p style={{ color: "red" }}>
+            Failed to submit the form. Please try again.
+          </p>
+        )}
+        {isSuccess && (
+          <p style={{ color: "green" }}>Station added successfully!</p>
+        )}
       </form>
     </div>
   );

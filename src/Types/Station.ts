@@ -1,9 +1,9 @@
 interface Station {
   id: number;
-  stationName: string;
-  stationAddress: string;
-  coordinateX: string;
-  coordinateY: string;
+  stationName: string | null;
+  stationAddress: string | null;
+  coordinateX: string | null;
+  coordinateY: string | null;
 }
 
 export default Station;
