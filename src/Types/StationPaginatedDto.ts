@@ -1,7 +1,7 @@
 type StationPaginatedDto = {
   id: number;
-  name: string | null;
-  address: string | null;
+  stationName: string | null;
+  stationAddress: string | null;
   coordinateX: number | null;
   coordinateY: number | null;
 };

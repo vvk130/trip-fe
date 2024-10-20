@@ -16,7 +16,7 @@ function PaginatedComp() {
       ).then((res) => res.json()),
   });
 
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const totalPages = data?.pagesTotal;
 
   if (isPending) return "Loading...";
@@ -29,22 +29,17 @@ function PaginatedComp() {
       <SearchBar />
       <p>See stations on map</p>
       <div>
-        <h1>API Data</h1>
         <h2>Total Stations: {data?.count}</h2>
         <h2>Total Pages: {data?.pagesTotal}</h2>
-        <h3>Stations List:</h3>
-        <ul>
-          {data?.data.map((station: StationPaginatedDto) => (
-            <li key={station.id}>
-              <Link to={`/stations/${station.id}`}>
-                <strong>{station.name}</strong>
-              </Link>{" "}
-              - {station.address}
-              <br />
-              Coordinates: {station.coordinateX}, {station.coordinateY}
-            </li>
-          ))}
-        </ul>
+        {data?.data.map((station: StationPaginatedDto) => (
+          <span key={station.id}>
+            <p>
+              <Link to={`/stations/${station.id}`}>{station.stationName}</Link>
+            </p>
+            <p>{station.stationAddress}</p>
+            Coordinates: {station.coordinateX}, {station.coordinateY}
+          </span>
+        ))}
       </div>
       <ResponsivePagination
         current={currentPage}
