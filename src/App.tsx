@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import MainComp from "./Components/MainComp";
-import MapComp from "./Components/MapComp";
+import MapComp from "./Components/PaginatedComp";
 import Navbar from "./Components/NavBar";
 import Login from "./Components/LoginCard/LoginCard";
 import StationForm from "./Components/Forms/Station";
-import StationDetail from "./Components/StationDetailPage";
+import StationDetail from "./Components/StationDetailComp";
 import NotFound from "./Components/NotFound";
 import Fetch from "./Components/Fetch";
 
