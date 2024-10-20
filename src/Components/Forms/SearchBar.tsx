@@ -13,7 +13,7 @@ const validationSchema = yup.object({
 const SearchBar = () => {
   const formik = useFormik({
     initialValues: {
-      searchQuery: "Search name or address...",
+      searchQuery: "Search by name or address...",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {

@@ -10,6 +10,7 @@ import SearchBar from "./Forms/SearchBar";
 import L from "leaflet";
 import { useState } from "react";
 import getCenterCoordinatesOrDefaultHelsinki from "../Utils/getCenterCoordinatesOrDefaultHelsinki";
+import { Link } from "react-router-dom";
 
 const MapComp = (): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(8);
@@ -57,7 +58,7 @@ const MapComp = (): JSX.Element => {
           return (
             <tr key={row.id}>
               <td>{row.id}</td>
-              <td>{row.name}</td>
+              <Link to={`/stations/${row.id}`}>{row.name}</Link>
             </tr>
           );
         }}
