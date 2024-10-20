@@ -17,7 +17,13 @@ const StationDetail = (): JSX.Element => {
       <p>Coordinate X: </p>
       <p>Coordinate Y: </p>
 
-      <h2>Station Details</h2>
+      <h2>Journey Details</h2>
+      <h3>Departure Station {id}</h3>
+      <p>Total Number of Journeys:</p>
+      <p>Average Distance</p>
+      <p>Average Duration</p>
+      <h3>Return Station {id}</h3>
+      <p>Total Number of Journeys:</p>
       <MapComponent positions={positions} />
     </>
   );
