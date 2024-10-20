@@ -17,10 +17,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <MainComp>
         <Navbar />
-        <Fetch />
         <Routes>
-          <Route path="/" element={<MapComp />} />
-          <Route path="/stations" element={<MapComp />} />
+          <Route path="/" element={<Fetch />} />
+          <Route path="/stations" element={<Fetch />} />
           <Route path="/add-station" element={<StationForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/stations/:id" element={<StationDetail />} />

@@ -10,44 +10,44 @@
 // import searchUrl from "../Utils/urls";
 // import { useState } from "react";
 
-import { useState } from "react";
-import { useQuery } from "tanstack-query";
-import axios from "axios";
+// import { useState } from "react";
+// import { useQuery } from "tanstack-query";
+// import axios from "axios";
 
-export default function PaginatedComp() {
-  const [searchTerm, setSearchTerm] = useState("");
+// export default function PaginatedComp() {
+//   const [searchTerm, setSearchTerm] = useState("");
 
-  const {
-    data: results,
-    isLoading,
-    error,
-  } = useQuery(
-    ["search", searchTerm],
-    () => axios.get(`/api/search?query=${searchTerm}`),
-    { enabled: !!searchTerm }
-  );
+//   const {
+//     data: results,
+//     isLoading,
+//     error,
+//   } = useQuery(
+//     ["search", searchTerm],
+//     () => axios.get(`/api/search?query=${searchTerm}`),
+//     { enabled: !!searchTerm }
+//   );
 
-  return (
-    <>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Search"
-      />
+//   return (
+//     <>
+//       <input
+//         type="text"
+//         value={searchTerm}
+//         onChange={(e) => setSearchTerm(e.target.value)}
+//         placeholder="Search"
+//       />
 
-      {isLoading && <p>Loading...</p>}
+//       {isLoading && <p>Loading...</p>}
 
-      {error && <p>Something went wrong: {error.message}</p>}
+//       {error && <p>Something went wrong: {error.message}</p>}
 
-      <ul>
-        {results.map((result) => (
-          <li key={result.id}>{result.name}</li>
-        ))}
-      </ul>
-    </>
-  );
-}
+//       <ul>
+//         {results.map((result) => (
+//           <li key={result.id}>{result.name}</li>
+//         ))}
+//       </ul>
+//     </>
+//   );
+// }
 // const [currentPage, setCurrentPage] = useState(8);
 // const totalPages = 20;
 
