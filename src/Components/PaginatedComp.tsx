@@ -33,15 +33,15 @@ function PaginatedComp() {
 
   const totalPages = data?.pagesTotal;
 
-  const positions: Positions[] =
-    data.data?.rows
+  const positions: Position[] =
+    data?.data?.rows
       .filter(
         (station: StationPaginatedDto) =>
           station.coordinateX !== null && station.coordinateY !== null
       )
-      .map((position: Position) => ({
-        coordinateX: position.coordinateX,
-        coordinateY: position.coordinateY,
+      .map((station: StationPaginatedDto) => ({
+        coordinateX: station.coordinateX as number,
+        coordinateY: station.coordinateY as number,
       })) || [];
 
   if (isPending) return "Loading...";

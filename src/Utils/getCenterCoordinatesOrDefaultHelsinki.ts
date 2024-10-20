@@ -1,7 +1,4 @@
-type Position = {
-  coordinateX: number | null; 
-  coordinateY: number | null; 
-}
+import Position from "../Types/Positions";
 
 const getCenterCoordinatesOrDefaultHelsinki = (positions: Position[]): [number, number] => {
   const defaultCoordinatesHelsinki: [number, number] = [60.1699, 24.9384]; 

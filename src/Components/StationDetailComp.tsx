@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import MapComponent from "./MapComp";
-import Position from "../Types/Positions";
+// import MapComponent from "./MapComp";
+// import Position from "../Types/Positions";
 
 const StationDetail = (): JSX.Element => {
   const { id } = useParams();
-  const positions: Position[] = [{ coordinateX: null, coordinateY: null }];
+  // const positions: Position[] = [{ coordinateX: null, coordinateY: null }];
 
   return (
     <>
@@ -21,7 +21,7 @@ const StationDetail = (): JSX.Element => {
       <p>Average Duration: </p>
       <h3>Return Station {id}</h3>
       <p>Total Number of Journeys:</p>
-      <MapComponent positions={positions} />
+      {/* <MapComponent positions={positions} /> */}
     </>
   );
 };
