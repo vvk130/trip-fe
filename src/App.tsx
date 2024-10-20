@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import MainComp from "./Components/MainComp";
-import MapComp from "./Components/PaginatedComp";
+// import MapComp from "./Components/PaginatedComp";
 import Navbar from "./Components/NavBar";
 import Login from "./Components/LoginCard/LoginCard";
 import StationForm from "./Components/Forms/Station";

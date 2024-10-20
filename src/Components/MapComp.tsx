@@ -7,11 +7,11 @@ import L from "leaflet";
 import getCenterCoordinatesOrDefaultHelsinki from "../Utils/getCenterCoordinatesOrDefaultHelsinki";
 import Position from "../Types/Positions";
 
-type MapComponentProps = {
+type MapCompProps = {
   positions: Position[];
 };
 
-const MapComponent = ({ positions }: MapComponentProps) => {
+const MapComp = ({ positions }: MapCompProps) => {
   const defaultCenter: [number, number] =
     getCenterCoordinatesOrDefaultHelsinki(positions);
   const defaultZoom: number = 12;
@@ -48,4 +48,4 @@ const MapComponent = ({ positions }: MapComponentProps) => {
   );
 };
 
-export default MapComponent;
+export default MapComp;
