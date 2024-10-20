@@ -4,4 +4,4 @@ https://journey-app-2024.netlify.app/
 
 # Backend Repo
 
-# Used Technologies
+https://github.com/vvk130/TripNetReactBackend
