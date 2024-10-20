@@ -1,7 +1,7 @@
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 import SearchBar from "./Forms/SearchBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MapComponent from "./MapComp";
 import { useQuery } from "@tanstack/react-query";
@@ -12,6 +12,7 @@ import Position from "../Types/Positions";
 function PaginatedComp() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
+  const [positions, setPositions] = useState<Position[]>([]);
 
   const { isPending, error, data } = useQuery({
     queryKey: ["stations", currentPage, searchTerm],
@@ -20,6 +21,22 @@ function PaginatedComp() {
         `${baseUrl}/api/Stations?Filters=%28StationName%7CStationAddress%29%40%3D%2A${searchTerm}&Page=${currentPage}`
       ).then((res) => res.json()),
   });
+
+  useEffect(() => {
+    if (data?.data) {
+      const newPositions: Position[] = data.data
+        .filter(
+          (station: StationPaginatedDto) =>
+            station.coordinateX !== null && station.coordinateY !== null
+        )
+        .map((station: StationPaginatedDto) => ({
+          coordinateX: Number(station.coordinateX),
+          coordinateY: Number(station.coordinateY),
+        }));
+
+      setPositions(newPositions);
+    }
+  }, [data]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -31,17 +48,6 @@ function PaginatedComp() {
   };
 
   const totalPages = data?.pagesTotal;
-
-  const positions: Position[] =
-    data?.data?.rows
-      .filter(
-        (station: StationPaginatedDto) =>
-          station.coordinateX !== null && station.coordinateY !== null
-      )
-      .map((station: StationPaginatedDto) => ({
-        coordinateX: station.coordinateX as number,
-        coordinateY: station.coordinateY as number,
-      })) || [];
 
   if (isPending) return "Loading...";
 
