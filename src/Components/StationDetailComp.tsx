@@ -46,6 +46,7 @@ function StationDetail() {
           </p>
         </>
       )}
+      {data.stationDetails.length === 0 && <p>No journeys for this station.</p>}
       <MapComponent
         positions={[
           {
