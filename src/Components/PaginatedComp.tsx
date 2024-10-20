@@ -13,7 +13,7 @@ function PaginatedComp() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const { isPending, error, data } = useQuery({
-    queryKey: ["stations", currentPage],
+    queryKey: ["stations", currentPage, searchTerm],
     queryFn: () =>
       fetch(
         `${baseUrl}/api/Stations?Filters=%28StationName%7CStationAddress%29%40%3D%2A${searchTerm}&Page=${currentPage}`
