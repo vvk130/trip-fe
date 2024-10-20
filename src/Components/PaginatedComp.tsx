@@ -22,15 +22,6 @@ const PaginatedComp = (): JSX.Element => {
     { coordinateX: 50.59, coordinateY: -0.08 },
   ];
 
-  // const defaultCenter: [number, number] =
-  //   positions?.length > 0 &&
-  //   positions[0].coordinateX != null &&
-  //   positions[0].coordinateY != null
-  //     ? [positions[0].coordinateX, positions[0].coordinateY]
-  //     : [60.1699, 24.9384];
-  // const defaultZoom: number = 12;
-  // const icon = L.icon({ iconUrl: iconMarker });
-
   const data = [
     { id: 1, name: "Station 1", Address: 30 },
     { id: 2, name: "Station 3", Address: 25 },

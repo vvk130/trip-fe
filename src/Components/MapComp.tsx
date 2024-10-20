@@ -5,11 +5,7 @@ import "leaflet-defaulticon-compatibility";
 import iconMarker from "leaflet/dist/images/marker-icon.png";
 import L from "leaflet";
 import getCenterCoordinatesOrDefaultHelsinki from "../Utils/getCenterCoordinatesOrDefaultHelsinki";
-
-type Position = {
-  coordinateX: number;
-  coordinateY: number;
-};
+import Position from "../Types/Positions";
 
 type MapComponentProps = {
   positions: Position[];
