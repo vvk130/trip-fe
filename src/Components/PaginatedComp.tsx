@@ -8,15 +8,20 @@ import { useQuery } from "@tanstack/react-query";
 import StationPaginatedDto from "../Types/StationPaginatedDto";
 
 function PaginatedComp() {
+  const [currentPage, setCurrentPage] = useState(1);
+
   const { isPending, error, data } = useQuery({
-    queryKey: ["repoData"],
+    queryKey: ["stations", currentPage],
     queryFn: () =>
       fetch(
-        "https://tripnetreactbackend-app-20241012.agreeablebay-04f023f8.swedencentral.azurecontainerapps.io/api/Stations"
+        `https://tripnetreactbackend-app-20241012.agreeablebay-04f023f8.swedencentral.azurecontainerapps.io/api/Stations?Page=${currentPage}`
       ).then((res) => res.json()),
   });
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   const totalPages = data?.pagesTotal;
 
   if (isPending) return "Loading...";
@@ -44,7 +49,7 @@ function PaginatedComp() {
       <ResponsivePagination
         current={currentPage}
         total={totalPages}
-        onPageChange={setCurrentPage}
+        onPageChange={handlePageChange}
       />
       <MapComponent positions={[{ coordinateX: null, coordinateY: null }]} />
     </>
