@@ -32,9 +32,9 @@ const PaginatedComp = (): JSX.Element => {
   // const icon = L.icon({ iconUrl: iconMarker });
 
   const data = [
-    { id: 1, name: "Station 1", age: 30 },
-    { id: 2, name: "Station 3", age: 25 },
-    { id: 3, name: "Station 20", age: 28 },
+    { id: 1, name: "Station 1", Address: 30 },
+    { id: 2, name: "Station 3", Address: 25 },
+    { id: 3, name: "Station 20", Address: 28 },
   ];
 
   return (
@@ -48,7 +48,10 @@ const PaginatedComp = (): JSX.Element => {
           return (
             <tr key={row.id}>
               <td>{row.id}</td>
-              <Link to={`/stations/${row.id}`}>{row.name}</Link>
+              <td>
+                <Link to={`/stations/${row.id}`}>{row.name}</Link>
+              </td>
+              <td>{row.Address}</td>
             </tr>
           );
         }}
