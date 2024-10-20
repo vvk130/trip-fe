@@ -22,11 +22,11 @@ function StationDetail() {
 
   return (
     <>
-      <h1>Station {data.id}</h1>
-      <p>Name: {data.stationName}</p>
-      <p>Address: {data.stationAddress}</p>
-      <p>Coordinate X: {data.coordinateX}</p>
-      <p>Coordinate Y: {data.coordinateY}</p>
+      <h1>Station {data.stationDto.id}</h1>
+      <p>Name: {data.stationDto.stationName}</p>
+      <p>Address: {data.stationDto.stationAddress}</p>
+      <p>Coordinate X: {data.stationDto.coordinateX}</p>
+      <p>Coordinate Y: {data.stationDto.coordinateY}</p>
       <h2>Journey Details</h2>
       {data.stationDetails.length > 0 && (
         <>
@@ -36,11 +36,9 @@ function StationDetail() {
           </p>
           <p>
             Average Distance: {data.stationDetails[0].avgDepartureDistance}{" "}
-            meters
           </p>
           <p>
             Average Duration: {data.stationDetails[0].avgDepartureDuration}{" "}
-            seconds
           </p>
           <h3>Return Station {id}</h3>
           <p>
