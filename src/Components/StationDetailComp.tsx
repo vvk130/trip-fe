@@ -17,24 +17,24 @@ function StationDetail() {
 
   if (error) return "An error has occurred: " + error.message;
 
-  if (!data || !data.station) {
+  if (!data) {
     return <p>No station details found.</p>;
   }
 
   const positions: Position[] = [
     {
-      coordinateX: parseFloat(data.station.coordinateX),
-      coordinateY: parseFloat(data.station.coordinateY),
+      coordinateX: parseFloat(data.coordinateX),
+      coordinateY: parseFloat(data.coordinateY),
     },
   ];
 
   return (
     <>
-      <h1>Station {data.station.id}</h1>
-      <p>Name: {data.station.stationName}</p>
-      <p>Address: {data.station.stationAddress}</p>
-      <p>Coordinate X: {data.station.coordinateX}</p>
-      <p>Coordinate Y: {data.station.coordinateY}</p>
+      <h1>Station {data.id}</h1>
+      <p>Name: {data.stationName}</p>
+      <p>Address: {data.stationAddress}</p>
+      <p>Coordinate X: {data.coordinateX}</p>
+      <p>Coordinate Y: {data.coordinateY}</p>
       <h2>Journey Details</h2>
       <h3>Departure Station {id}</h3>
       <p>Total Number of Journeys: {data.stationDetails.departureTotalNum}</p>
