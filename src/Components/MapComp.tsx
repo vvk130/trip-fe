@@ -9,6 +9,7 @@ import Table from "../Utils/Table";
 import SearchBar from "./Forms/SearchBar";
 import L from "leaflet";
 import { useState } from "react";
+import getCenterCoordinatesOrDefaultHelsinki from "../Utils/getCenterCoordinatesOrDefaultHelsinki";
 
 const MapComp = (): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(8);
@@ -27,12 +28,16 @@ const MapComp = (): JSX.Element => {
     { coordinateX: 50.59, coordinateY: -0.08 },
   ];
 
+  // const defaultCenter: [number, number] =
+  //   positions?.length > 0 &&
+  //   positions[0].coordinateX != null &&
+  //   positions[0].coordinateY != null
+  //     ? [positions[0].coordinateX, positions[0].coordinateY]
+  //     : [60.1699, 24.9384];
+
   const defaultCenter: [number, number] =
-    positions?.length > 0 &&
-    positions[0].coordinateX != null &&
-    positions[0].coordinateY != null
-      ? [positions[0].coordinateX, positions[0].coordinateY]
-      : [60.1699, 24.9384];
+    getCenterCoordinatesOrDefaultHelsinki(positions);
+
   const defaultZoom: number = 12;
   const icon = L.icon({ iconUrl: iconMarker });
 
