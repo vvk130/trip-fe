@@ -4,10 +4,7 @@ import Position from "../Types/Positions";
 
 const StationDetail = (): JSX.Element => {
   const { id } = useParams();
-  const positions: Position[] = [
-    { coordinateX: 50.22, coordinateY: 50.444 },
-    { coordinateX: 60.12, coordinateY: 40.123 },
-  ];
+  const positions: Position[] = [{ coordinateX: null, coordinateY: null }];
 
   return (
     <>
@@ -20,8 +17,8 @@ const StationDetail = (): JSX.Element => {
       <h2>Journey Details</h2>
       <h3>Departure Station {id}</h3>
       <p>Total Number of Journeys:</p>
-      <p>Average Distance</p>
-      <p>Average Duration</p>
+      <p>Average Distance:</p>
+      <p>Average Duration: </p>
       <h3>Return Station {id}</h3>
       <p>Total Number of Journeys:</p>
       <MapComponent positions={positions} />

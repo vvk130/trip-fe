@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 // Define the Station interface
 interface Station {
@@ -17,29 +18,46 @@ interface StationResponse {
   data: Station[];
 }
 
-const App: React.FC = () => {
-  // Update the state type to handle the full response
-  const [data, setData] = useState<StationResponse | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+// const App: React.FC = () => {
+//   // Update the state type to handle the full response
+//   const [data, setData] = useState<StationResponse | null>(null);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    axios
-      .get<StationResponse>(
+//   useEffect(() => {
+//     axios
+//       .get<StationResponse>(
+//         "https://tripnetreactbackend-app-20241012.agreeablebay-04f023f8.swedencentral.azurecontainerapps.io/api/Stations"
+//       )
+//       .then((response) => {
+//         setData(response.data);
+//         setLoading(false);
+//       })
+//       .catch((error) => {
+//         setError(error.message);
+//         setLoading(false);
+//       });
+//   }, []);
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>Error: {error}</p>;
+
+// };
+
+// export default App;
+
+export default function Example() {
+  const { isPending, error, data } = useQuery({
+    queryKey: ["repoData"],
+    queryFn: () =>
+      fetch(
         "https://tripnetreactbackend-app-20241012.agreeablebay-04f023f8.swedencentral.azurecontainerapps.io/api/Stations"
-      )
-      .then((response) => {
-        setData(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-        setLoading(false);
-      });
-  }, []);
+      ).then((res) => res.json()),
+  });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (isPending) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
 
   return (
     <div>
@@ -48,7 +66,7 @@ const App: React.FC = () => {
       <h2>Total Pages: {data?.pagesTotal}</h2>
       <h3>Stations List:</h3>
       <ul>
-        {data?.data.map((station) => (
+        {data?.data.map((station: Station) => (
           <li key={station.id}>
             <strong>{station.stationName}</strong> - {station.stationAddress}
             <br />
@@ -58,6 +76,4 @@ const App: React.FC = () => {
       </ul>
     </div>
   );
-};
-
-export default App;
+}

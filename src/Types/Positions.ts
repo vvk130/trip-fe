@@ -1,6 +1,6 @@
 type Position = {
-  coordinateX: number;
-  coordinateY: number;
+  coordinateX: number | null;
+  coordinateY: number | null;
 };
 
 export default Position;

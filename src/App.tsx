@@ -8,21 +8,26 @@ import StationForm from "./Components/Forms/Station";
 import StationDetail from "./Components/StationDetailComp";
 import NotFound from "./Components/NotFound";
 import Fetch from "./Components/Fetch";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <MainComp>
-      <Navbar />
-      <Fetch />
-      <Routes>
-        <Route path="/" element={<MapComp />} />
-        <Route path="/stations" element={<MapComp />} />
-        <Route path="/add-station" element={<StationForm />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/stations/:id" element={<StationDetail />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </MainComp>
+    <QueryClientProvider client={queryClient}>
+      <MainComp>
+        <Navbar />
+        <Fetch />
+        <Routes>
+          <Route path="/" element={<MapComp />} />
+          <Route path="/stations" element={<MapComp />} />
+          <Route path="/add-station" element={<StationForm />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/stations/:id" element={<StationDetail />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </MainComp>
+    </QueryClientProvider>
   );
 }
 
