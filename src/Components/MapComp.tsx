@@ -33,8 +33,8 @@ const MapComp = ({ positions }: MapCompProps) => {
           return (
             <Marker
               key={
-                position.coordinateX.toString() +
-                position.coordinateY.toString()
+                position.coordinateY.toString() +
+                position.coordinateX.toString()
               }
               position={[position.coordinateX, position.coordinateY]}
               icon={icon}
