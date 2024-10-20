@@ -3,6 +3,12 @@ import * as yup from "yup";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
+type OnSearchType = (query: string) => void;
+
+type SearchBarProps = {
+  onSearch: OnSearchType;
+};
+
 const validationSchema = yup.object({
   searchQuery: yup
     .string()
@@ -10,14 +16,15 @@ const validationSchema = yup.object({
     .required("Search query is required"),
 });
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }: SearchBarProps) => {
   const formik = useFormik({
     initialValues: {
       searchQuery: "Search by name or address...",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      onSearch(values.searchQuery);
+      formik.resetForm();
     },
   });
 

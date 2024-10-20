@@ -6,20 +6,27 @@ import { Link } from "react-router-dom";
 import MapComponent from "./MapComp";
 import { useQuery } from "@tanstack/react-query";
 import StationPaginatedDto from "../Types/StationPaginatedDto";
+import baseUrl from "../Utils/urls";
 
 function PaginatedComp() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { isPending, error, data } = useQuery({
     queryKey: ["stations", currentPage],
     queryFn: () =>
       fetch(
-        `https://tripnetreactbackend-app-20241012.agreeablebay-04f023f8.swedencentral.azurecontainerapps.io/api/Stations?Page=${currentPage}`
+        `${baseUrl}/api/Stations?Filters=%28StationName%7CStationAddress%29%40%3D%2A${searchTerm}&Page=${currentPage}`
       ).then((res) => res.json()),
   });
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+  };
+
+  const handleSearch = (query: string) => {
+    setSearchTerm(query);
+    setCurrentPage(1);
   };
 
   const totalPages = data?.pagesTotal;
@@ -31,15 +38,14 @@ function PaginatedComp() {
   return (
     <>
       <h1>Stations</h1>
-      <SearchBar />
-      <p>See stations on map</p>
+      <SearchBar onSearch={handleSearch} />
       <div>
         <text>Total Stations: {data?.count}</text>
         {data?.data.map((station: StationPaginatedDto) => (
           <p key={station.id}>
             <Link to={`/stations/${station.id}`}>{station.stationName}</Link> ||{" "}
-            {station.stationAddress} ||
-            {station.coordinateX}, {station.coordinateY}
+            {station.stationAddress} || {station.coordinateX},{" "}
+            {station.coordinateY}
           </p>
         ))}
       </div>
