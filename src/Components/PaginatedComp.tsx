@@ -7,6 +7,8 @@ import MapComponent from "./MapComp";
 import { useQuery } from "@tanstack/react-query";
 import StationPaginatedDto from "../Types/StationPaginatedDto";
 import baseUrl from "../Utils/urls";
+import Positions from "../Types/Positions";
+import Position from "../Types/Positions";
 
 function PaginatedComp() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,6 +33,17 @@ function PaginatedComp() {
 
   const totalPages = data?.pagesTotal;
 
+  const positions: Positions[] =
+    data.data?.rows
+      .filter(
+        (station: StationPaginatedDto) =>
+          station.coordinateX !== null && station.coordinateY !== null
+      )
+      .map((position: Position) => ({
+        coordinateX: position.coordinateX,
+        coordinateY: position.coordinateY,
+      })) || [];
+
   if (isPending) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
@@ -54,7 +67,7 @@ function PaginatedComp() {
         total={totalPages}
         onPageChange={handlePageChange}
       />
-      <MapComponent positions={[{ coordinateX: null, coordinateY: null }]} />
+      <MapComponent positions={positions} />
     </>
   );
 }
