@@ -34,16 +34,13 @@ function PaginatedComp() {
       <SearchBar />
       <p>See stations on map</p>
       <div>
-        <h2>Total Stations: {data?.count}</h2>
-        <h2>Total Pages: {data?.pagesTotal}</h2>
+        <text>Total Stations: {data?.count}</text>
         {data?.data.map((station: StationPaginatedDto) => (
-          <span key={station.id}>
-            <p>
-              <Link to={`/stations/${station.id}`}>{station.stationName}</Link>
-            </p>
-            <p>{station.stationAddress}</p>
-            Coordinates: {station.coordinateX}, {station.coordinateY}
-          </span>
+          <p key={station.id}>
+            <Link to={`/stations/${station.id}`}>{station.stationName}</Link> ||{" "}
+            {station.stationAddress} ||
+            {station.coordinateX}, {station.coordinateY}
+          </p>
         ))}
       </div>
       <ResponsivePagination
